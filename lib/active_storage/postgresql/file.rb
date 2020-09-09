@@ -1,5 +1,5 @@
 class ActiveStorage::PostgreSQL::File < ActiveRecord::Base
-  self.table_name = "active_storage_postgresql_files"
+  self.table_name = "#{table_name_prefix}active_storage_postgresql_files#{table_name_suffix}"
 
   attribute :oid, :integer, default: ->{ connection.raw_connection.lo_creat }
   attr_accessor :checksum, :io
